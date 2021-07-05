@@ -17,13 +17,12 @@ import java.util.concurrent.TimeUnit;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-@EmbeddedKafka(partitions = 1, brokerProperties = { "listeners=PLAINTEXT://localhost:9092", "port=9092" },
-topics = "${kafka.topicName}")
-@Import({
-        com.kafka.config.KafkaConsumerConfig.class,
-        com.kafka.config.KafkaProducerConfig.class,
-        com.kafka.config.KafkaTopicConfig.class,
-})
+@EmbeddedKafka(partitions = 1, brokerProperties = { "listeners=PLAINTEXT://${kafka.bootstrap.address}:${kafka.bootstrap.port}"})
+//@Import({
+//        com.kafka.config.KafkaConsumerConfig.class,
+//        com.kafka.config.KafkaProducerConfig.class,
+//        com.kafka.config.KafkaTopicConfig.class,
+//})
 public class EmbeddedKafkaTest {
 
     @Autowired
@@ -35,7 +34,7 @@ public class EmbeddedKafkaTest {
     @Test
     public void test() throws InterruptedException {
         kafkaProducerService.sendMessage("message");
-        kafkaConsumerService.getLatch().await(1000, TimeUnit.MILLISECONDS);
+        kafkaConsumerService.getLatch().await(10000, TimeUnit.MILLISECONDS);
 
         Assert.assertEquals(kafkaConsumerService.getLatch().getCount(), 0L);
         Assert.assertEquals(kafkaConsumerService.getPayload(), "message");
