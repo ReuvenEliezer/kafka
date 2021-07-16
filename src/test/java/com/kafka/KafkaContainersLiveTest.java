@@ -2,8 +2,8 @@ package com.kafka;
 
 import com.kafkaApp;
 import com.services.KafkaConsumerService;
+import com.services.KafkaConsumerServiceImpl;
 import com.services.KafkaProducerService;
-import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.junit.Assert;
 import org.junit.ClassRule;
 import org.junit.Test;
@@ -11,7 +11,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
-import org.springframework.kafka.test.context.EmbeddedKafka;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.testcontainers.containers.KafkaContainer;

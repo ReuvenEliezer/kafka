@@ -22,7 +22,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <junit.jupiter.version>5.5.2</junit.jupiter.version>
         <junit.platform.version>1.5.2</junit.platform.version>
-        <spring.kafka.version>2.5.13.RELEASE</spring.kafka.version>
+        <spring.kafka.version>2.5.14.RELEASE</spring.kafka.version>
     </properties>
 
     <dependencies>
