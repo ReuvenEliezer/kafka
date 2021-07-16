@@ -35,16 +35,16 @@ public class EmbeddedKafkaTest {
     @Test
     public void test() throws InterruptedException {
         for (int i = 0; i < 1; i++) {
-            kafkaProducerService.sendMessage("message"+i);
+            kafkaProducerService.sendMessage("message" + i);
         }
 
         kafkaConsumerService.getLatch().await(10000, TimeUnit.MILLISECONDS);
         Assert.assertEquals(0L, kafkaConsumerService.getLatch().getCount());
-        Assert.assertEquals("message1", kafkaConsumerService.getPayload());
+        Assert.assertEquals("message0", kafkaConsumerService.getPayload());
 
 //        kafkaConsumerService.resetToOffset(2);
 
-        kafkaConsumerService.getLatch().await(10000, TimeUnit.MILLISECONDS);
+//        kafkaConsumerService.getLatch().await(10000, TimeUnit.MILLISECONDS);
 
 //        kafkaProducerService.sendMessage("message6");
 //        kafkaConsumerService.getLatch().await(10000, TimeUnit.MILLISECONDS);
