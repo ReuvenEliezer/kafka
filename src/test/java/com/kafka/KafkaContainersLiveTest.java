@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 @Import({
         com.kafka.config.KafkaConsumerConfig.class,
         com.kafka.config.KafkaProducerConfig.class,
-        com.kafka.config.KafkaTopicConfig.class,
+//        com.kafka.config.KafkaTopicConfig.class,
 })
 @SpringBootTest(classes = kafkaApp.class)
 public class KafkaContainersLiveTest {
