@@ -26,7 +26,7 @@ public class KafkaProducerServiceImpl implements KafkaProducerService {
 
         ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(topicName, message);
 
-        future.addCallback(new ListenableFutureCallback<>() {
+        future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
 
             @Override
             public void onSuccess(SendResult<String, String> result) {
